@@ -10,6 +10,10 @@ app.use(express.json()) //convert request body to js object
 
 app.use(sessionMiddleware)
 
+app.get('/health', (req: Request, res:Response)=>{
+    res.sendStatus(200)
+})
+
 app.use('/users',userRouter) //redirect to userRouter
 app.use('/reimbursements',reimbursementRouter)//redirect to reimbursementRouter
 
