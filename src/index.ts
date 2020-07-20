@@ -2,11 +2,15 @@ import express , {Request, Response, NextFunction }from 'express'
 import {BadRequestError} from './errors/BadRequestError'
 import {sessionMiddleware} from './middleware/session-middleware'
 import {userRouter} from './routers/user-router'
-import {reimbursementRouter} from './routers/reimbursement-router'
-import { getUserByUsernameAndPassword } from './daos/user-dao'
+import { getUserByUsernameAndPassword } from './daos/sql/user-dao'
+import { corsFilter } from './middleware/cors-filter'
 
 const app = express()   //app represents entire empress application
 app.use(express.json()) //convert request body to js object
+
+app.use(express.json({limit:'60mb'})) //increase maximum size of body
+
+app.use(corsFilter)
 
 app.use(sessionMiddleware)
 
@@ -15,7 +19,6 @@ app.get('/health', (req: Request, res:Response)=>{
 })
 
 app.use('/users',userRouter) //redirect to userRouter
-app.use('/reimbursements',reimbursementRouter)//redirect to reimbursementRouter
 
 app.post('/login', async (req: Request, res:Response, next:NextFunction)=>{
     let username = req.body.username

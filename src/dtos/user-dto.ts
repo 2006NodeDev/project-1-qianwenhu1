@@ -7,6 +7,8 @@ export class UserDTO {
     first_name:string
     last_name:string
     email:string
-    role_id:number
-    role: string
+    month_of_birth: number
+    date_of_birth: number
+    year_of_birth: number
+    image: string
 }

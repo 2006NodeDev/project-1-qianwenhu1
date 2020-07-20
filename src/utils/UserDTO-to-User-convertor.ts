@@ -1,10 +1,7 @@
 import { UserDTO } from "../dtos/user-dto";
 import { User } from "../models/User";
-import { Role } from "../models/Role";
 
-export function UserDTOtoUserConvertor( udto:UserDTO):User{
-    let userRole:Role = {roleId: udto.role_id, role:udto.role}
-    
+export function UserDTOtoUserConvertor( udto:UserDTO):User{    
     return {
         userId:udto.user_id,
         username: udto.username,
@@ -12,6 +9,9 @@ export function UserDTOtoUserConvertor( udto:UserDTO):User{
         firstName: udto.first_name,
         lastName: udto.last_name,
         email: udto.email,
-        role: userRole
+        monthOfBirth: udto.month_of_birth,
+        dateOfBirth: udto.date_of_birth,
+        yearOfBirth: udto.year_of_birth,
+        image: udto.image
     }
 }

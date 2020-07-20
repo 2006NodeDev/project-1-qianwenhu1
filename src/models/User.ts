@@ -1,4 +1,3 @@
-import {Role} from './Role'
 
 export class User{
     userId: number // primary key
@@ -7,5 +6,8 @@ export class User{
 	firstName: string // not null
 	lastName: string // not null
 	email: string // not null
-	role: Role // not null
+	monthOfBirth: number // not null
+	dateOfBirth: number // not null
+	yearOfBirth: number // not null
+	image: string
 }
