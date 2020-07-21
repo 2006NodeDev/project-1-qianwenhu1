@@ -12,6 +12,7 @@ export function UserDTOtoUserConvertor( udto:UserDTO):User{
         monthOfBirth: udto.month_of_birth,
         dateOfBirth: udto.date_of_birth,
         yearOfBirth: udto.year_of_birth,
-        image: udto.image
+        image: udto.image,
+        invalidAttempt: udto.invalid_attempt
     }
 }

@@ -11,4 +11,5 @@ export class UserDTO {
     date_of_birth: number
     year_of_birth: number
     image: string
+    invalid_attempt: number
 }

@@ -4,6 +4,8 @@ import {sessionMiddleware} from './middleware/session-middleware'
 import {userRouter} from './routers/user-router'
 import { getUserByUsernameAndPassword } from './daos/sql/user-dao'
 import { corsFilter } from './middleware/cors-filter'
+import './event-listeners/user-birthday'
+import './event-listeners/user-invalidAttempt'
 
 const app = express()   //app represents entire empress application
 app.use(express.json()) //convert request body to js object

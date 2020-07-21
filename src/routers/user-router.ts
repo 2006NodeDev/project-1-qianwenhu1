@@ -28,8 +28,9 @@ userRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
 userRouter.patch('/', async (req: Request, res: Response, next: NextFunction) => {
     
     let {userId, username, password, firstName, lastName, email, monthOfBirth, dateOfBirth, yearOfBirth, image} = req.body
+    let invalidAttempt = 0
     if(userId){
-        let currUser: User = {userId, username, password, firstName, lastName, email, monthOfBirth, dateOfBirth, yearOfBirth, image}
+        let currUser: User = {userId, username, password, firstName, lastName, email, monthOfBirth, dateOfBirth, yearOfBirth, image, invalidAttempt}
         try{            
             let modifiedUser = await updateUser(currUser)
             res.json(modifiedUser)
@@ -47,8 +48,9 @@ userRouter.patch('/', async (req: Request, res: Response, next: NextFunction) =>
 userRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
     
     let {userId, username, password, firstName, lastName, email, monthOfBirth, dateOfBirth, yearOfBirth, image} = req.body
+    let invalidAttempt = 0
     if(!userId){
-        let newUser: User = {userId, username, password, firstName, lastName, email, monthOfBirth, dateOfBirth, yearOfBirth, image}
+        let newUser: User = {userId, username, password, firstName, lastName, email, monthOfBirth, dateOfBirth, yearOfBirth, image, invalidAttempt}
         try{            
             let newlyCreatedUser = await createUserService(newUser)
             res.json(newlyCreatedUser)

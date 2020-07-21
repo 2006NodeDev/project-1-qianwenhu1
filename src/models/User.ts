@@ -10,4 +10,5 @@ export class User{
 	dateOfBirth: number // not null
 	yearOfBirth: number // not null
 	image: string
+	invalidAttempt: number
 }

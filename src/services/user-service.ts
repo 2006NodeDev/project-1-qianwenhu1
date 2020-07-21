@@ -2,11 +2,16 @@ import { User } from "../models/User"
 import { getUserById, createUser, updateUser } from "../daos/sql/user-dao"
 import { bucketBaseUrl } from "../daos/cloud-storage"
 import { saveUserProfilePicture } from "../daos/cloud-storage/user-image"
+//import { expressEventEmitter, customUserBirthdayExpressEvents } from "../event-listeners"
+
 
 
 export async function getUserByIDService(id: number): Promise<User> {
-    return await getUserById(id)
+    let curUser = await getUserById(id)
+    //expressEventEmitter.emit(customUserBirthdayExpressEvents.CUR_USER, curUser)
+    return curUser
 }
+
 
 export async function createUserService(newUser: User): Promise<User> {
     try {
